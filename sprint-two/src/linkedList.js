@@ -1,9 +1,9 @@
-var LinkedList = function() {
+var LinkedList = function() { // O(1) - constant
   var list = {};
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(value) {
+  list.addToTail = function(value) { // O(1) - constant
 
     if (list.tail !== null) {
       var previousTail = list.tail;
@@ -15,13 +15,13 @@ var LinkedList = function() {
     }
   };
 
-  list.removeHead = function() {
+  list.removeHead = function() { // O(1) - constant
     var previousHead = list.head;
     list.head = list.head.next;
     return previousHead.value;
   };
 
-  list.contains = function(target, node) {
+  list.contains = function(target, node) { // O(n) - linear
     node = node || list.head;
     if (node.value === target) {
       return true;
@@ -35,7 +35,7 @@ var LinkedList = function() {
   return list;
 };
 
-var Node = function(value) {
+var Node = function(value) { // O(1) - constant 
   var node = {};
 
   node.value = value;
