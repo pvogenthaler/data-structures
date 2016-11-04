@@ -3,7 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = [];  // fix me
+  newTree.children = [];
   _.extend(newTree, treeMethods);
   return newTree;
 };
@@ -15,18 +15,21 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  if (this.value === target) {
+  if (this.containsHelper(target)) {
     return true;
-  } else if (this.children.length > 0) {
-    for (var i = 0; i < this.children.length; i ++) {
-      console.log(this.children[i]);
-      return this.children[i].contains(target);
-    }
   } else {
     return false;
   }
 };
 
+treeMethods.containsHelper = function(target) {
+  if (this.value === target) {
+    return true;
+  }
+  for (var i = 0; i < this.children.length; i ++) {
+    return this.children[i].containsHelper(target);   
+  }
+};
 
 
 /*
