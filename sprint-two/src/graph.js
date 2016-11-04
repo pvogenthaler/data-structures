@@ -7,13 +7,13 @@ var Graph = function() {      // O(1) - constant
 
 };
 
-var Node = function(value) {      // O(1) - constant
+var GraphNode = function(value) {      // O(1) - constant
   this.value = value;
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(value) {     // O(1) - amortized constant
-  this.nodes.push(new Node(value)); 
+  this.nodes.push(new GraphNode(value)); 
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
