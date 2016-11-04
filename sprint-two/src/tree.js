@@ -14,21 +14,18 @@ treeMethods.addChild = function(value) { // constant
 };
 
 treeMethods.contains = function(target) { // linear
-  if (this.containsHelper(target)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-treeMethods.containsHelper = function(target) {
+  var boolean = false;
+  
   if (this.value === target) {
-    return true;
+    boolean = true;
   }
   for (var i = 0; i < this.children.length; i ++) {
-    return this.children[i].containsHelper(target);   
+    boolean = boolean || this.children[i].contains(target);
   }
+  
+  return boolean;
 };
+
 
 
 /*
