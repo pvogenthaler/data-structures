@@ -1,8 +1,7 @@
-var Tree = function(value) {
+var Tree = function(value) { // constant
   var newTree = {};
   newTree.value = value;
 
-  // your code here
   newTree.children = [];
   _.extend(newTree, treeMethods);
   return newTree;
@@ -10,11 +9,11 @@ var Tree = function(value) {
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {
+treeMethods.addChild = function(value) { // constant
   this.children.push(Tree(value)); 
 };
 
-treeMethods.contains = function(target) {
+treeMethods.contains = function(target) { // linear
   if (this.containsHelper(target)) {
     return true;
   } else {
