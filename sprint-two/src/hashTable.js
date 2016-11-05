@@ -45,8 +45,6 @@ HashTable.prototype.remove = function(k) {    // O(n) - linear
   var bucket = this._storage.get(index);
 
   for (var i = 0; i < bucket.length; i ++) {
-    console.log(bucket[i]);
-
     if (bucket[i][0] === k) {
       bucket[i] = undefined;
     }
