@@ -71,3 +71,43 @@ describe('linkedList', function() {
 
   // add more tests here to test the functionality of linkedList
 });
+
+
+describe('doublyLinkedList', function() {
+  var doublyLinkedList;
+
+  beforeEach(function() {
+    doublyLinkedList = DoublyLinkedList();
+  });
+
+  it('should have a head and tail', function() {
+    expect(doublyLinkedList).to.have.property('head');
+    expect(doublyLinkedList).to.have.property('tail');
+  });
+
+  it('should have methods named "addToTail", "removeHead", "removeTail", and "contains"', function() {
+    expect(doublyLinkedList.addToTail).to.be.a('function');
+    expect(doublyLinkedList.removeHead).to.be.a('function');
+    expect(doublyLinkedList.contains).to.be.a('function');
+    expect(doublyLinkedList.contains).to.be.a('function');
+    expect(doublyLinkedList.addToHead).to.be.a('function');
+  });
+
+  it('should add new node to head when addToHead is called', function() {
+    doublyLinkedList.addToTail(4);
+    doublyLinkedList.addToTail(5);
+    doublyLinkedList.addToTail(6);
+    doublyLinkedList.addToHead(2);
+    expect(doublyLinkedList.head.value).to.equal(2);
+  });
+
+  it('should remove the tail when removeTail is called', function() {
+    doublyLinkedList.addToTail(4);
+    doublyLinkedList.addToTail(5);
+    doublyLinkedList.addToTail(6);
+    doublyLinkedList.removeTail();
+    expect(doublyLinkedList.tail.value).to.equal(5);
+  });
+});
+
+

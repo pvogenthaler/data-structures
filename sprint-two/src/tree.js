@@ -26,6 +26,16 @@ treeMethods.contains = function(target) { // linear
   return boolean;
 };
 
+treeMethods.removeTree = function(value, tree) {
+  tree = tree || this;
+
+  for (var i = 0; i < tree.children.length; i ++) {
+    if (tree.children[i].value === value) {
+      tree.children.splice(i, 1);
+    }
+    tree.removeTree(value, tree.children[i]);
+  }
+};
 
 
 /*
