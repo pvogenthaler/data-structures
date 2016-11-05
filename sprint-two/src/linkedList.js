@@ -21,6 +21,18 @@ var LinkedList = function() { // O(1) - constant
     return previousHead.value;
   };
 
+  list.removeTail = function(node) {  // O(n) - linear
+    node = node || this.head;
+    if (node.next.next === null) {
+      var result = list.tail.value;
+      list.tail = node;
+      node.next = null;
+      return result;
+    } else {
+      list.removeTail(node.next);
+    }
+  };
+
   list.contains = function(target, node) { // O(n) - linear
     node = node || list.head;
     if (node.value === target) {
